@@ -1,12 +1,58 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week Planner</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <script src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Week Planner</title>
+    <link rel="stylesheet" href="layout.css" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+    <h1>Weekly Planner</h1>
+    <h2>Choose Day to Show Events</h2>
+    <label for="week">Day of Week</label> <br />
+    <select id="week">
+      <option value="Monday">Monday</option>
+      <option value="Tuesday">Tuesday</option>
+      <option value="Wednesday">Wednesday</option>
+      <option value="Thursday">Thursday</option>
+      <option value="Friday">Friday</option>
+      <option value="Saturday">Saturday</option>
+      <option value="Sunday">Sunday</option>
+    </select>
+
+    <button class="new-event">Add New Event</button>
+    <dialog>
+      <form action="">
+        <label for="hours"></label>
+          <br /><select id="hours">
+            <option value="0000">0000</option>
+            <option value="0100">0100</option>
+            <option value="0200">0200</option>
+            <option value="0300">0300</option>
+            <option value="0400">0400</option>
+            <option value="0500">0500</option>
+            <option value="0600">0600</option>
+            <!-- hours for full day ... later -->
+          </select></label
+        >
+        <label for="week2">Day of Week</label> <br />
+        <select id="week2">
+          <option value="Monday">Monday</option>
+          <option value="Tuesday">Tuesday</option>
+          <option value="Wednesday">Wednesday</option>
+          <option value="Thursday">Thursday</option>
+          <option value="Friday">Friday</option>
+          <option value="Saturday">Saturday</option>
+          <option value="Sunday">Sunday</option>
+        </select>
+        <label for="event">Event Information</label><textarea id="event"></textarea>
+      </form>
+    </dialog>
+
+    <table><thead></thead><tbody></tbody></table>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
