@@ -42,26 +42,28 @@ $confirmModal.addEventListener('click', (event: Event) => {
     'event',
   ) as HTMLTextAreaElement;
   if (!$eventInfoInput) throw new Error('event info input not found');
-  console.log($hoursInput.value, $week2Input.value, $eventInfoInput.value);
+  // console.log($hoursInput.value, $week2Input.value, $eventInfoInput.value);
   const input: Entry = {
     hour: $hoursInput.value,
     day: $week2Input.value,
     event: $eventInfoInput.value,
   };
 
-  renderEntry(input);
+  // renderEntry(input);
+  entries.push(input);
+  renderForm();
   $dialog.close();
   $form.reset();
 });
 
 function renderEntry(entry: Entry): HTMLElement {
-  console.log(entry);
+  // console.log(entry);
   const $tr = document.createElement('tr');
   if (!$tr) throw new Error('tr does not exist');
   $tr.setAttribute('class', entry.day);
   const $tdTime = document.createElement('td');
   if (!$tdTime) throw new Error('tdTime does not exist');
-  $tdTime.innerText = entry.day;
+  $tdTime.innerText = entry.hour;
   const $tdEvent = document.createElement('td');
   if (!$tdEvent) throw new Error('tdEvent does not exist');
   $tdEvent.innerText = entry.event;
@@ -85,11 +87,25 @@ function renderEntry(entry: Entry): HTMLElement {
   $tr.appendChild($tdTime);
   $tr.appendChild($tdEvent);
   $tr.appendChild($tdActions);
-  console.log($tr);
+  // console.log($tr);
   return $tr;
 }
 
-const $tableRow = document.querySelector('#row-1');
-console.log($tableRow);
-
+function renderForm(): void {
+  let i = 0;
+  for (let j = 1; j <= 10; j++) {
+    if (i < entries.length) {
+      const $tr = document.getElementById(`row-${j}`);
+      if (!$tr) throw new Error('tr not found.');
+      // console.log($tr);
+      // console.log(renderEntry(entries[i]));
+      $tr.replaceWith(renderEntry(entries[i]));
+      $tr.setAttribute('id', `row-${j}`);
+      i++;
+    }
+    // for (let i = 0; i < entries.length; i++) {
+    //   renderEntry(entries[i]);
+    // }
+  }
+}
 // const $photoInput = document.querySelector('input[name="photo"]');
