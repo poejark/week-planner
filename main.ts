@@ -51,7 +51,7 @@ $confirmModal.addEventListener('click', (event: Event) => {
 
   // renderEntry(input);
   entries.push(input);
-  renderForm();
+  renderForm('pass');
   $dialog.close();
   $form.reset();
 });
@@ -81,8 +81,6 @@ function renderEntry(entry: Entry): HTMLElement {
   $deleteButton.classList.add('delete-actions');
   $deleteButton.innerText = 'Delete';
 
-  const $blankTr = document.createElement('tr');
-
   $tdActions.appendChild($editButton);
   $tdActions.appendChild($deleteButton);
 
@@ -93,29 +91,30 @@ function renderEntry(entry: Entry): HTMLElement {
   return $tr;
 }
 
-// let currentRow = 1;
-
-function renderForm(): void {
+function renderForm(day: string): void {
   let i = 0;
   for (let j = 1; j <= 10; j++) {
     if (i < entries.length) {
-      const $tr = document.getElementById(`row-${j}`);
-      console.log(j);
-      if (!$tr) throw new Error('tr not found.');
-        // console.log($tr);
-        // console.log(renderEntry(entries[i]));
-      $tr.replaceWith(renderEntry(entries[i]));
-      $tr.setAttribute('id', `row-${j}`);
-      i++;
+      if (entries[i].day === day || day === 'pass') {
+        console.log('reached');
+        const $tr = document.getElementById(`row-${j}`);
+        if (!$tr) throw new Error('tr not found.');
+        const $trReplacer = renderEntry(entries[i]);
+        if (!$trReplacer) throw new Error('no tr Replacer found');
+        $trReplacer.setAttribute('id', `row-${j}`);
+        $tr.replaceWith($trReplacer);
       }
-      // for (let i = 0; i < entries.length; i++) {
-      //   renderEntry(entries[i]);
-      // const $newRow = renderEntry(entries[i]); // Create new row first
-      // $newRow.setAttribute('id', `row-${currentRow}`); // Assign the ID BEFORE replacing
-      // $tr.replaceWith($newRow); // Now replace safely
-
-      // currentRow = currentRow < 10 ? currentRow + 1 : 1;
+      i++;
     }
   }
 }
 // const $photoInput = document.querySelector('input[name="photo"]');
+
+const $weekForm = document.querySelector('#week');
+if (!$weekForm) throw new Error('no week form found');
+$weekForm.addEventListener('change', (event: Event) => {
+  const $eventTargetValue = (event.target as HTMLSelectElement).value;
+  if (!$eventTargetValue) throw new Error('no event target found');
+  // console.log($eventTargetValue);
+  renderForm($eventTargetValue);
+});
