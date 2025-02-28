@@ -57,7 +57,7 @@ $confirmModal.addEventListener('click', (event: Event) => {
 });
 
 function renderEntry(entry: Entry): HTMLElement {
-  // console.log(entry);
+  console.log(entry);
   const $tr = document.createElement('tr');
   if (!$tr) throw new Error('tr does not exist');
   $tr.setAttribute('class', entry.day);
@@ -92,22 +92,30 @@ function renderEntry(entry: Entry): HTMLElement {
 }
 
 function renderForm(day: string): void {
+  debugger;
   let i = 0;
   for (let j = 1; j <= 10; j++) {
-    if (i < entries.length) {
+    const $tr = document.getElementById(`row-${j}`);
+    if (!$tr) throw new Error('tr not found.');
+    if (i < entries.length)
+      console.log(entries[i].day === day || day === 'pass');
+    {
       if (entries[i].day === day || day === 'pass') {
-        console.log('reached');
-        const $tr = document.getElementById(`row-${j}`);
-        if (!$tr) throw new Error('tr not found.');
+        console.log(day);
         const $trReplacer = renderEntry(entries[i]);
         if (!$trReplacer) throw new Error('no tr Replacer found');
         $trReplacer.setAttribute('id', `row-${j}`);
         $tr.replaceWith($trReplacer);
       }
       i++;
+    } else {
+      const newVar = emptyRow();
+      newVar.setAttribute('id', `row-${j}`);
+      $tr.replaceWith(newVar);
     }
   }
 }
+
 // const $photoInput = document.querySelector('input[name="photo"]');
 
 const $weekForm = document.querySelector('#week');
@@ -115,6 +123,18 @@ if (!$weekForm) throw new Error('no week form found');
 $weekForm.addEventListener('change', (event: Event) => {
   const $eventTargetValue = (event.target as HTMLSelectElement).value;
   if (!$eventTargetValue) throw new Error('no event target found');
-  // console.log($eventTargetValue);
+  // console.log($eventTargetValue, typeof $eventTargetValue);
   renderForm($eventTargetValue);
 });
+
+function emptyRow(): HTMLElement {
+  const $trEmpty = document.createElement('tr');
+  const $td1Empty = document.createElement('td');
+  const $td2Empty = document.createElement('td');
+  const $td3Empty = document.createElement('td');
+
+  $trEmpty.appendChild($td1Empty);
+  $trEmpty.appendChild($td2Empty);
+  $trEmpty.appendChild($td3Empty);
+  return $trEmpty;
+}
