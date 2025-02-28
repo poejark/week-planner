@@ -92,25 +92,50 @@ function renderEntry(entry: Entry): HTMLElement {
 }
 
 function renderForm(day: string): void {
-  debugger;
-  let i = 0;
-  for (let j = 1; j <= 10; j++) {
-    const $tr = document.getElementById(`row-${j}`);
+  // let i = 0;
+  const $validEntries: HTMLElement[] = [];
+  // for (let j = 1; j <= 10; j++) {
+  //   const $tr = document.getElementById(`row-${j}`);
+  //   if (!$tr) throw new Error('tr not found.');
+  //   if (i < entries.length) {
+  //     if (entries[i].day === day || day === 'pass') {
+  //       const $trReplacer = renderEntry(entries[i]);
+  //       if (!$trReplacer) throw new Error('no tr Replacer found');
+  //       // $trReplacer.setAttribute('id', `row-${j}`);
+  //       // $tr.replaceWith($trReplacer);
+  //       $validEntries.push($trReplacer);
+  //     } else {
+  //       // const newVar = emptyRow();
+  //       // newVar.setAttribute('id', `row-${j}`);
+  //       // $tr.replaceWith(newVar);
+  //     }
+  //     i++;
+  //   } else {
+  // const newVar = emptyRow();
+  //     newVar.setAttribute('id', `row-${j}`);
+  //     $tr.replaceWith(newVar);
+  //   }
+  // }
+
+  for (let i = 0; i < entries.length; i++) {
+    if (entries[i].day === day || day === 'pass') {
+      const $trReplacer = renderEntry(entries[i]);
+      if (!$trReplacer) throw new Error('no tr Replacer found');
+      // $trReplacer.setAttribute('id', `row-${j}`);
+      // $tr.replaceWith($trReplacer);
+      $validEntries.push($trReplacer);
+    }
+  }
+
+  for (let j = 0; j < 10; j++) {
+    const $tr = document.getElementById(`row-${j + 1}`);
     if (!$tr) throw new Error('tr not found.');
-    if (i < entries.length)
-      console.log(entries[i].day === day || day === 'pass');
-    {
-      if (entries[i].day === day || day === 'pass') {
-        console.log(day);
-        const $trReplacer = renderEntry(entries[i]);
-        if (!$trReplacer) throw new Error('no tr Replacer found');
-        $trReplacer.setAttribute('id', `row-${j}`);
-        $tr.replaceWith($trReplacer);
-      }
-      i++;
+    if (j < $validEntries.length) {
+      $validEntries[j].setAttribute('id', `row-${j + 1}`);
+      $tr.replaceWith($validEntries[j]);
     } else {
       const newVar = emptyRow();
-      newVar.setAttribute('id', `row-${j}`);
+      newVar.setAttribute('id', `row-${j + 1}`);
       $tr.replaceWith(newVar);
     }
   }
