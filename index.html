@@ -10,31 +10,31 @@
   <body>
     <div class="container">
       <div class="row">
-    <h1>Weekly Planner</h1>
-    </div>
-     <div class="row">
-    <h2>Choose Day to Show Events</h2>
-    </div>
-     <div class="row">
-      <div class="dropdown">
-    <label for="week">Day of Week</label> <br />
-    <select id="week">
-      <option value="Monday">Monday</option>
-      <option value="Tuesday">Tuesday</option>
-      <option value="Wednesday">Wednesday</option>
-      <option value="Thursday">Thursday</option>
-      <option value="Friday">Friday</option>
-      <option value="Saturday">Saturday</option>
-      <option value="Sunday">Sunday</option>
-    </select>
-    </div>
-</div>
-<div class="row">
-    <button class="new-event">Add New Event</button>
-</div>
-    <dialog>
-      <form action="">
-        <label for="hours"></label>
+        <h1>Weekly Planner</h1>
+      </div>
+      <div class="row">
+        <h2>Choose Day to Show Events</h2>
+      </div>
+      <div class="row">
+        <div class="dropdown">
+          <label for="week">Day of Week</label> <br />
+          <select id="week">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <button class="new-event">Add New Event</button>
+      </div>
+      <dialog class="entry-creation">
+        <form action="">
+          <label for="hours"></label>
           <br /><select id="hours">
             <option value="0000">0000</option>
             <option value="0100">0100</option>
@@ -44,35 +44,68 @@
             <option value="0500">0500</option>
             <option value="0600">0600</option>
             <!-- hours for full day ... later -->
-          </select></label
-        >
-        <label for="week2">Day of Week</label> <br />
-        <select id="week2">
-          <option value="Monday">Monday</option>
-          <option value="Tuesday">Tuesday</option>
-          <option value="Wednesday">Wednesday</option>
-          <option value="Thursday">Thursday</option>
-          <option value="Friday">Friday</option>
-          <option value="Saturday">Saturday</option>
-          <option value="Sunday">Sunday</option>
-        </select>
-        <label for="event">Event Information</label><textarea id="event"></textarea>
-      </form>
-    </dialog>
-
-    <table class="table"><thead>
-<tr>
-  <th> Time</th>
-  <th>Event</th>
-  <th>Actions</th>
-</tr>
-    </thead>
-    <tbody>
-      <tr><td>Time of Event</td><td>Name of Event</td><td><button class="edit-actions">Edit</button><button class="delete-actions">Delete</button></td></tr>
-       <tr><td>Time of Event</td><td>Name of Event</td><td><button class="edit-actions">Edit</button><button class="delete-actions">Delete</button></td></tr>
-      <tr><td>Time of Event</td><td>Name of Event</td><td><button class="edit-actions">Edit</button><button class="delete-actions">Delete</button></td></tr>
-     <tr><td>Time of Event</td><td>Name of Event</td><td><button class="edit-actions">Edit</button><button class="delete-actions">Delete</button></td></tr>
-    </tbody></table>
+          </select>
+          <label for="week2">Day of Week</label> <br />
+          <select id="week2">
+            <option value="Monday">Monday</option>
+            <option value="Tuesday">Tuesday</option>
+            <option value="Wednesday">Wednesday</option>
+            <option value="Thursday">Thursday</option>
+            <option value="Friday">Friday</option>
+            <option value="Saturday">Saturday</option>
+            <option value="Sunday">Sunday</option>
+          </select>
+          <label for="event">Event Information</label
+          ><textarea id="event"></textarea>
+          <button class="cancel-modal">Cancel</button>
+          <button class="confirm-modal">Confirm</button>
+        </form>
+      </dialog>
+      <div class="row">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Time</th>
+              <th>Event</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Time of Event</td>
+              <td>Name of Event</td>
+              <td>
+                <button class="edit-actions">Edit</button
+                ><button class="delete-actions">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Time of Event</td>
+              <td>Name of Event</td>
+              <td>
+                <button class="edit-actions">Edit</button
+                ><button class="delete-actions">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Time of Event</td>
+              <td>Name of Event</td>
+              <td>
+                <button class="edit-actions">Edit</button
+                ><button class="delete-actions">Delete</button>
+              </td>
+            </tr>
+            <tr>
+              <td>Time of Event</td>
+              <td>Name of Event</td>
+              <td>
+                <button class="edit-actions">Edit</button
+                ><button class="delete-actions">Delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
     <script src="main.js"></script>
   </body>
