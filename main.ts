@@ -81,6 +81,8 @@ function renderEntry(entry: Entry): HTMLElement {
   $deleteButton.classList.add('delete-actions');
   $deleteButton.innerText = 'Delete';
 
+  const $blankTr = document.createElement('tr');
+
   $tdActions.appendChild($editButton);
   $tdActions.appendChild($deleteButton);
 
@@ -91,21 +93,29 @@ function renderEntry(entry: Entry): HTMLElement {
   return $tr;
 }
 
+// let currentRow = 1;
+
 function renderForm(): void {
   let i = 0;
   for (let j = 1; j <= 10; j++) {
     if (i < entries.length) {
       const $tr = document.getElementById(`row-${j}`);
+      console.log(j);
       if (!$tr) throw new Error('tr not found.');
-      // console.log($tr);
-      // console.log(renderEntry(entries[i]));
+        // console.log($tr);
+        // console.log(renderEntry(entries[i]));
       $tr.replaceWith(renderEntry(entries[i]));
       $tr.setAttribute('id', `row-${j}`);
       i++;
+      }
+      // for (let i = 0; i < entries.length; i++) {
+      //   renderEntry(entries[i]);
+      // const $newRow = renderEntry(entries[i]); // Create new row first
+      // $newRow.setAttribute('id', `row-${currentRow}`); // Assign the ID BEFORE replacing
+      // $tr.replaceWith($newRow); // Now replace safely
+
+      // currentRow = currentRow < 10 ? currentRow + 1 : 1;
     }
-    // for (let i = 0; i < entries.length; i++) {
-    //   renderEntry(entries[i]);
-    // }
   }
 }
 // const $photoInput = document.querySelector('input[name="photo"]');
