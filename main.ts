@@ -55,14 +55,6 @@ $confirmModal.addEventListener('click', (event: Event) => {
 });
 
 function renderEntry(entry: Entry): HTMLElement {
-  // <tr>
-  // <td>Time of Event</td>
-  //           <td>Name of Event</td>
-  //           <td>
-  //             <button class="edit-actions">Edit</button
-  //             ><button class="delete-actions">Delete</button>
-  //           </td>
-  // </tr>
   console.log(entry);
   const $tr = document.createElement('tr');
   if (!$tr) throw new Error('tr does not exist');
@@ -75,6 +67,7 @@ function renderEntry(entry: Entry): HTMLElement {
   $tdEvent.innerText = entry.event;
   const $tdActions = document.createElement('td');
   if (!$tdActions) throw new Error('td Actions does not exist');
+  $tdActions.classList.add('table-buttons');
 
   const $editButton = document.createElement('button');
   if (!$editButton) throw new Error('edit button not found');
@@ -95,5 +88,8 @@ function renderEntry(entry: Entry): HTMLElement {
   console.log($tr);
   return $tr;
 }
+
+const $tableRow = document.querySelector('#row-1');
+console.log($tableRow);
 
 // const $photoInput = document.querySelector('input[name="photo"]');

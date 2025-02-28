@@ -64,3 +64,43 @@ td {
   background-color: rgb(25, 135, 85);
   border-radius: 4px;
 }
+
+table {
+  width: 100%;
+}
+
+thead {
+  background-color: white;
+}
+
+tbody tr:nth-child(even) {
+  background-color: white;
+}
+
+tbody tr:nth-child(odd) {
+  background-color: lightgrey;
+}
+
+.delete-actions {
+  background-color: rgb(200, 48, 62);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.edit-actions {
+  background-color: rgb(38, 110, 254);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.table-buttons {
+  display: flex;
+  justify-content: space-around;
+  border: 1px black;
+}
