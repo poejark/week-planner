@@ -1,6 +1,21 @@
 .row {
   display: flex;
   justify-content: center;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin: 2rem;
+}
+
+.dropdown {
+  flex-direction: column;
+  max-width: 15%;
+}
+
+.table {
+  border: 1px grey solid;
+}
+
+table,
+th,
+td {
+  border: 1px solid black;
+  border-collapse: collapse;
 }
