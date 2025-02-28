@@ -1,12 +1,10 @@
 .row {
   display: flex;
   justify-content: center;
-  margin: 2rem;
 }
 
 .dropdown {
   flex-direction: column;
-  max-width: 15%;
 }
 
 .table {
@@ -18,4 +16,51 @@ th,
 td {
   border: 1px solid black;
   border-collapse: collapse;
+}
+
+.modal {
+  position: fixed; /* Ensures the modal stays centered */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centers the modal */
+  width: 400px; /* Set a width */
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin: 0.1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal-textarea {
+  height: 10rem;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin: 0.5rem;
+}
+
+.cancel-modal {
+  color: white;
+  background-color: darkgrey;
+  border-radius: 4px;
+  padding: 5px;
+}
+
+.confirm-modal {
+  color: white;
+  background-color: rgb(25, 135, 85);
+  border-radius: 4px;
 }

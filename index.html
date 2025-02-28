@@ -32,35 +32,46 @@
       <div class="row">
         <button class="new-event">Add New Event</button>
       </div>
-      <dialog class="entry-creation">
-        <form action="">
-          <label for="hours"></label>
-          <br /><select id="hours">
-            <option value="0000">0000</option>
-            <option value="0100">0100</option>
-            <option value="0200">0200</option>
-            <option value="0300">0300</option>
-            <option value="0400">0400</option>
-            <option value="0500">0500</option>
-            <option value="0600">0600</option>
-            <!-- hours for full day ... later -->
-          </select>
-          <label for="week2">Day of Week</label> <br />
-          <select id="week2">
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="Saturday">Saturday</option>
-            <option value="Sunday">Sunday</option>
-          </select>
-          <label for="event">Event Information</label
-          ><textarea id="event"></textarea>
-          <button class="cancel-modal">Cancel</button>
-          <button class="confirm-modal">Confirm</button>
-        </form>
-      </dialog>
+      <div class="modal hidden"></div>
+
+        <dialog class="entry-creation">
+          <form>
+            <div class="row modal-content">
+            <label for="hours">Time of Event</label>
+           <select id="hours">
+              <option value="0000">0000</option>
+              <option value="0100">0100</option>
+              <option value="0200">0200</option>
+              <option value="0300">0300</option>
+              <option value="0400">0400</option>
+              <option value="0500">0500</option>
+              <option value="0600">0600</option>
+              <!-- hours for full day ... later -->
+            </select></div>
+<div class="row modal-content">
+            <label for="week2">Day of Week</label>
+            <select id="week2">
+              <option value="Monday">Monday</option>
+              <option value="Tuesday">Tuesday</option>
+              <option value="Wednesday">Wednesday</option>
+              <option value="Thursday">Thursday</option>
+              <option value="Friday">Friday</option>
+              <option value="Saturday">Saturday</option>
+              <option value="Sunday">Sunday</option>
+            </select>
+            </div>
+            <div class="row modal-content">
+            <label for="event">Event Information</label
+            ><textarea id="event" class="modal-textarea"></textarea>
+            <div class="modal-buttons">
+            <button class="cancel-modal">Cancel</button>
+            <button class="confirm-modal">Confirm</button>
+            </div>
+            </div>
+          </form>
+        </dialog>
+        </div>
+      </div>
       <div class="row">
         <table class="table">
           <thead>
